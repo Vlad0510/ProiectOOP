@@ -1,46 +1,59 @@
-//Cotoarba Vlad, gr 252
-//Este doar un inceput, iar tema este un magazin de jucarii.
-
 #include <iostream>
 
 class Jucarie
 {
-    int nr_produse;
-    float pret;
-    std::string nume_produs;
-};
-
-class jucarii_de_baieti: Jucarie
-{
-    int nr_produse;
-    float pret;
+    std::string nume_jucarie;
     std::string producator;
-    std::string nume_produs;
+    float pret;
+    int nr_produse;
 public:
-    jucarii_de_baieti(int nrProduse = 8, float pret = 129.99, const std::string &producator = "Xshot", const std::string &numeProdus = "Hawk_eye")
-    : nr_produse(nrProduse), pret(pret), producator(producator), nume_produs(numeProdus)
-    {
-        std::cout << producator << ' ' << nume_produs << ' ' << nr_produse << ' ' << pret << '\n';
+    Jucarie(const std::string &numeJucarie, const std::string &producator, float pret, int nrProduse):
+    nume_jucarie(numeJucarie), producator(producator), pret(pret), nr_produse(nrProduse) {}
+
+    const std::string &getNumeJucarie() const {
+        return nume_jucarie;
+    }
+
+    const std::string &getProducator() const {
+        return producator;
+    }
+
+    float getPret() const {
+        return pret;
+    }
+
+    int getNrProduse() const {
+        return nr_produse;
     }
 };
 
-class jucarii_de_fete: Jucarie
+class elicopter: public Jucarie
 {
-    int nr_produse;
-    float pret;
-    std::string producator;
-    std::string nume_produs;
+    char *culoare = new char[20];
+    int *nr_baterii = new int;
+
 public:
-    jucarii_de_fete(int nrProduse = 6, float pret = 89.99, const std::string &producator = "Maia", const std::string &numeProdus = "Maia_balerina")
-    : nr_produse(nrProduse), pret(pret), producator(producator), nume_produs(numeProdus)
+    elicopter(const std::string &numeJucarie, const std::string &producator, float pret, int nrProduse, char *culoare,int *nrBaterii):
+              Jucarie(numeJucarie, producator, pret, nrProduse), culoare(culoare),nr_baterii(nrBaterii) {}
+
+    char *getCuloare() const {
+        return culoare;
+    }
+
+    int *getNrBaterii() const {
+        return nr_baterii;
+    }
+
+    friend std::ostream& operator<<(std::ostream& putout, const elicopter &elic)
     {
-        std::cout << producator << ' ' << nume_produs << ' ' << nr_produse << ' ' << pret << '\n';
+        putout << elic.getNumeJucarie() << ' ' << elic.getProducator() << ' ' << elic.getPret() << ' ' << elic.getNrProduse() << ' ' << elic.getCuloare() << ' ' << elic.getNrBaterii();
     }
 };
+
 
 int main()
 {
-    jucarii_de_baieti b;
-    jucarii_de_fete f;
+    elicopter E("elicopter", "Idrive", 59.99, 8, "verde", 6);
+    std::cout << E;
     return 0;
 }
