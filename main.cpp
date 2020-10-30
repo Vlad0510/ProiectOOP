@@ -123,49 +123,93 @@ public:
         this->valabilitate_oferte = valabilitateOferte;
     }
 
-    const std::string &getNumeleCatalogului() const {
-        return numele_catalogului;
-    }
-
-    int getNrCataloage() const {
-        return nr_cataloage;
-    }
-
-    const std::string &getValabilitateOferte() const {
-        return valabilitate_oferte;
+    friend std::ostream& operator<<(std::ostream& putout, const catalog_de_promotii &c)
+    {
+        putout << c.numele_catalogului << ' ' << c.nr_cataloage << ' ' << c.valabilitate_oferte << '\n';
+        return putout;
     }
 };
 
 class Lego
 {
+    std::string model;
+    float pret;
     std::string varsta_recomandata;
     int nr_piese;
     catalog_de_promotii cdp;
 
 public:
-    Lego(const std::string &varstaRecomandata, int nrPiese, const catalog_de_promotii &cdp)
+    Lego(const std::string &model, float pret, const std::string &varstaRecomandata, int nrPiese, const catalog_de_promotii &cdp):
+    cdp(cdp)
     {
+        this->model = model;
+        this->pret = pret;
         this->varsta_recomandata = varstaRecomandata;
         this->nr_piese = nrPiese;
-        this->cdp = cdp;
+    }
+
+    friend std::ostream& operator<<(std::ostream& putout, const Lego &l)
+    {
+        putout << l.model << ' ' << l.pret << ' ' << l.varsta_recomandata << ' ' << l.nr_piese << ' ' << l.cdp;
+        return putout;
     }
 };
 
+class Xshot
+{
+    std::string model;
+    std::string munitie;
+    int nr_tinte;
+    catalog_de_promotii cdp;
+
+public:
+
+    Xshot(const std::string &model, const std::string &munitie, int nrTinte, const catalog_de_promotii &cdp):
+    cdp(cdp)
+    {
+        this->model = model;
+        this->munitie = munitie;
+        this->nr_tinte = nrTinte;
+    }
+
+    friend std::ostream& operator<<(std::ostream& putout, const Xshot &x)
+    {
+        putout << x.model << ' ' << x.munitie << ' ' << x.nr_tinte << ' ' << x.cdp;
+        return putout;
+    }
+    void verificare_tinte()
+    {
+        if(nr_tinte > 0)
+            std::cout << "Produsul contine tinte" << '\n';
+        else
+            std::cout << "Produsul nu contine tinte, dar le puteti cumpara separat" << '\n';
+    }
+};
 
 int main()
 {
     int *p = new int;
     *p = 6;
-    elicopter E1("elicopter", "Idrive", 59.99f, 8, "verde", p);
+    int *n = new int;
+    *n = 7;
+    elicopter E1("elicopter", "iDrive", 119.99f, 8, "verde", p);
     elicopter ElicopteR = E1;
-    elicopter E2("ELIcopter", "IdrivE", 79.99f, 5, "galben", p);
+    elicopter E2("elicopter", "CoolMachines", 84.99f, 5, "galben", n);
     std::cout << E1 << '\n';
-    std::cout << ElicopteR << '\n';
     std::cout << E2 << '\n';
+    std::cout << ElicopteR << '\n';
     E1 = E2;
-    std::cout << E1;
+    std::cout << E1 << '\n';
 
-   catalog_de_promotii C("lego", 7, "20.10.2020-31.10.2020");
-   Lego L("7+", 150, C);
+    catalog_de_promotii C_lego("lego", 7, "20.10.2020-31.10.2020");
+    Lego L("Lego-city", 59.99f, "7+", 150, C_lego);
+    std::cout << L;
+    catalog_de_promotii C_xshot("X-shot", 15, "01.11.2020-15.11.2020");
+    Xshot X1("Hawk_eye", "proiectile", 5, C_xshot);
+    std::cout << X1;
+    X1.verificare_tinte();
+    Xshot X2("Chaos", "bile", 0, C_xshot);
+    std::cout << X2;
+    X2.verificare_tinte();
     return 0;
 }
