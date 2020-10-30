@@ -205,10 +205,10 @@ int main()
     std::cout << E1 << '\n';
 
     catalog_de_promotii C_lego("lego", 7, "20.10.2020-31.10.2020");
-    Lego L("Lego-city", 59.99f, "7+", 150, C_lego);
+    Lego L("Lego city", 59.99f, "7+", 150, C_lego);
     std::cout << L;
     catalog_de_promotii C_xshot("X-shot", 15, "01.11.2020-15.11.2020");
-    Xshot X1("Hawk_eye", "proiectile", 5, C_xshot);
+    Xshot X1("Hawk eye", "proiectile", 5, C_xshot);
     std::cout << X1;
     X1.verificare_tinte();
     Xshot X2("Chaos", "bile", 0, C_xshot);
