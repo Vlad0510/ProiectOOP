@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 
 class Jucarie
 {
@@ -73,8 +74,10 @@ public:
 
     elicopter(const elicopter &sursa): Jucarie(sursa)
     {
-        this->culoare = sursa.culoare;
-        this->nr_baterii = sursa.nr_baterii;
+        this->culoare = new char[20];
+        strcpy(this->culoare, sursa.culoare);
+        this->nr_baterii = new int;
+        *this->nr_baterii = *sursa.nr_baterii;
     }
 
     elicopter& operator=(const elicopter &e)
@@ -83,8 +86,8 @@ public:
         this->setProducator(e.getProducator()) ;
         this->setPret(e.getPret());
         this->setNrProduse(e.getNrProduse()) ;
-        this->culoare = e.culoare;
-        this->nr_baterii = e.nr_baterii;
+        strcpy(this->culoare, e.culoare);
+        *this->nr_baterii = *e.nr_baterii;
         return *this;
     }
 
@@ -105,7 +108,7 @@ public:
     virtual ~elicopter()
     {
         delete nr_baterii;
-        delete culoare;
+        delete [] culoare;
     }
 };
 
@@ -211,5 +214,8 @@ int main()
     Xshot X2("Chaos", "bile", 0, C_xshot);
     std::cout << X2;
     X2.verificare_tinte();
+
+    delete p;
+    delete n;
     return 0;
 }

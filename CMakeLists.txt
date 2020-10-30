@@ -1,3 +1,5 @@
-cmake_minimum_required(VERSION 2.8.9)
-project (hello)
+project (ProiectOOP)
+
+set(CMAKE_CXX_STANDARD 14)
+
 add_executable(ProiectOOP main.cpp)
