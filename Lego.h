@@ -27,6 +27,8 @@ public:
         << ' ' << "Numar piese:" << ' ' << l.nr_piese << ' ' << "Catalog:" << ' ' << l.cdp;
         return putout;
     }
+
+    void testare_jucarie();
 };
 
 #endif //PROIECTOOP_LEGO_H

@@ -49,6 +49,8 @@ public:
                << ' ' << "Are nevoie de" << ' ' << elic.getNrBaterii() << ' ' << "baterii";
         return putout;
     }
+
+    void testare_jucarie();
 };
 
 #endif //PROIECTOOP_ELICOPTER_H

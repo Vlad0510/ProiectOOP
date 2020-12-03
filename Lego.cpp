@@ -11,3 +11,8 @@ Lego::Lego(const std::string &numeJucarie, const std::string &producator, float 
                 this->varsta_recomandata = varstaRecomandata;
                 this->nr_piese = nrPiese;
            }
+
+void Lego::testare_jucarie()
+{
+    std::cout << "Nu lipsesc piese" << '\n';
+}

@@ -57,6 +57,9 @@ public:
     void setNrProduse(int nrProduse) {
         nr_produse = nrProduse;
     }
+
+    virtual void testare_jucarie(){}
+
 };
 
 

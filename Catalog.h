@@ -13,7 +13,6 @@ class catalog_de_promotii
     std::string numele_catalogului;
     int nr_cataloage;
     std::string valabilitate_oferte;
-
 public:
     catalog_de_promotii(const std::string &numeleCatalogului, int nrCataloage, const std::string &valabilitateOferte);
 

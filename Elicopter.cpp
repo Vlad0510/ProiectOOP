@@ -10,3 +10,7 @@ elicopter::elicopter(const std::string &numeJucarie, const std::string &producat
             this->culoare = culoare;
             this->nr_baterii = nrBaterii;
           }
+void elicopter::testare_jucarie()
+{
+    std::cout << "Elicopterul zboara" << '\n';
+}

@@ -12,22 +12,27 @@
 
 class Xshot: public Jucarie
 {
-    std::string munitie;
+    std::string tip_munitie;
     int nr_tinte;
+    int nr_gloante;
     catalog_de_promotii cdp;
 
 public:
     Xshot(const std::string &numeJucarie, const std::string &producator, float pret, int nrProduse,
-          const std::string &munitie, int nrTinte, const catalog_de_promotii &cdp);
+          const std::string &tip_munitie, int nrTinte, int nr_gloante, const catalog_de_promotii &cdp);
 
     friend std::ostream& operator<<(std::ostream& putout, const Xshot &x)
     {
         putout << x.getNumeJucarie() << ' ' << "Producator:" << ' ' << x.getProducator() << ' ' << "Pret:" << ' ' << x.getPret()
-        << ' ' << "Numar produse disponibile:" << ' ' << x.getNrProduse() << ' ' << "Tip munitie:" << ' ' << x.munitie
-        << ' ' << "Numar tinte:" << ' ' << x.nr_tinte << ' ' << "Catalog:" << ' ' << x.cdp;
+        << ' ' << "Numar produse disponibile:" << ' ' << x.getNrProduse() << ' ' << "Tip munitie:" << ' ' << x.tip_munitie
+        << ' ' << "Numar tinte:" << ' ' << x.nr_tinte << ' ' << "Numar gloante:" << ' ' << x.nr_gloante<< ' ' << "Catalog:" << ' ' << x.cdp;
         return putout;
     }
+
     void verificare_tinte() const;
+    void testare_jucarie();
+    void magazie();
+    void tragaci(int);
 
 };
 
