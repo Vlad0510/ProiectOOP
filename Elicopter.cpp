@@ -3,6 +3,7 @@
 //
 #include "Jucarie.h"
 #include "Elicopter.h"
+#include "rlutil.h"
 
 elicopter::elicopter(const std::string &numeJucarie, const std::string &producator, float pret, int nrProduse, const std::string &culoare, int nrBaterii):
           Jucarie(numeJucarie, producator, pret, nrProduse)
@@ -12,5 +13,7 @@ elicopter::elicopter(const std::string &numeJucarie, const std::string &producat
           }
 void elicopter::testare_jucarie()
 {
+    setColor(rlutil::GREEN);
     std::cout << "Elicopterul zboara" << '\n';
+    setColor(rlutil::GREY);
 }

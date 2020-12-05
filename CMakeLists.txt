@@ -1,5 +1,7 @@
 project (ProiectOOP)
-
+cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 14)
-
-add_executable(ProiectOOP main.cpp Jucarie.h Jucarie.cpp Elicopter.h Elicopter.cpp Catalog.h Catalog.cpp Lego.h Lego.cpp Xshot.h Xshot.cpp)
+set(SFML_DIR SFML-2.5.1/lib/cmake/SFML)
+find_package(SFML 2.5.1 COMPONENTS system graphics audio network REQUIRED)
+add_executable(ProiectOOP main.cpp Jucarie.h Jucarie.cpp Elicopter.h Elicopter.cpp Catalog.h Catalog.cpp Lego.h Lego.cpp Xshot.h Xshot.cpp rlutil.h)
+target_link_libraries(ProiectOOP PRIVATE sfml-audio sfml-graphics sfml-network sfml-system)

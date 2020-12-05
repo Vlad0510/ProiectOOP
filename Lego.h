@@ -28,7 +28,7 @@ public:
         return putout;
     }
 
-    void testare_jucarie();
+    void testare_jucarie() override;
 };
 
 #endif //PROIECTOOP_LEGO_H

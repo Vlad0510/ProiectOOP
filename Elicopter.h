@@ -39,7 +39,7 @@ public:
     }
 
     int getNrBaterii() const {
-        return nr_baterii;//*nr_baterii;
+        return nr_baterii;
     }
 
     friend std::ostream& operator<<(std::ostream& putout, const elicopter &elic)
@@ -50,7 +50,7 @@ public:
         return putout;
     }
 
-    void testare_jucarie();
+    void testare_jucarie() override;
 };
 
 #endif //PROIECTOOP_ELICOPTER_H

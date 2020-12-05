@@ -30,10 +30,9 @@ public:
     }
 
     void verificare_tinte() const;
-    void testare_jucarie();
-    void magazie();
-    void tragaci(int);
-
+    void testare_jucarie() override;
+    void tragaci() const;
+    void magazie() const;
 };
 
 #endif //PROIECTOOP_XSHOT_H
