@@ -33,6 +33,8 @@ public:
     void testare_jucarie() override;
     void tragaci() const;
     void magazie() const;
+
+    virtual ~Xshot();
 };
 
 #endif //PROIECTOOP_XSHOT_H

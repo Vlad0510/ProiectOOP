@@ -10,3 +10,7 @@ catalog_de_promotii::catalog_de_promotii(const std::string &numeleCatalogului, i
     this->nr_cataloage = nrCataloage;
     this->valabilitate_oferte = valabilitateOferte;
 }
+
+catalog_de_promotii::~catalog_de_promotii() {
+
+}

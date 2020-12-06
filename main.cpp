@@ -11,13 +11,17 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(sf::VideoMode::getDesktopMode()), "SFML");
 
+    setColor(rlutil::RED);
+    std::cout << "Folositi 0 pentru DA si 1 pentru NU\n";
+    setColor(rlutil::GREY);
 
     elicopter E1("elicopter", "iDrive", 119.99f, 8, "GREEN", 6);
     elicopter ElicopteR = E1;
-    elicopter E2("elicopter", "CoolMachines", 84.99f, 5, "galben", 7);
+    elicopter E2("elicopter", "CoolMachines", 84.99f, 5, "CYAN", 7);
     std::cout << E1 << '\n';
     E1.testare_jucarie();
     std::cout << E2 << '\n';
+    E2.testare_jucarie();
     std::cout << ElicopteR << '\n';
     E1 = E2;
     std::cout << E1 << '\n';
@@ -37,6 +41,7 @@ int main()
     Xshot X2("Chaos", "Xshot", 59.99f, 6, "bile", 0, 6, C_xshot);
     std::cout << X2;
     X2.verificare_tinte();
+    X2.testare_jucarie();
     X2.tragaci();
     X2.magazie();
 

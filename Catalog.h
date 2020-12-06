@@ -21,6 +21,8 @@ public:
         putout << c.numele_catalogului << ' ' << "Numar cataloage:" << ' ' << c.nr_cataloage << ' ' << "Valabilitate catalog:" << ' ' << c.valabilitate_oferte << '\n';
         return putout;
     }
+
+    virtual ~catalog_de_promotii();
 };
 
 #endif //PROIECTOOP_CATALOG_H

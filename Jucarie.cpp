@@ -10,3 +10,7 @@ Jucarie::Jucarie(const std::string &numeJucarie, const std::string &producator, 
      this->pret = pret;
      this->nr_produse = nrProduse;
  }
+
+Jucarie::~Jucarie() {
+
+}

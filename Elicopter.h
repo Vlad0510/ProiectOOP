@@ -51,6 +51,8 @@ public:
     }
 
     void testare_jucarie() override;
+
+    virtual ~elicopter();
 };
 
 #endif //PROIECTOOP_ELICOPTER_H

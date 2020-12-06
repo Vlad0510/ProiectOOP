@@ -60,6 +60,8 @@ public:
 
     virtual void testare_jucarie(){}
 
+    virtual ~Jucarie();
+
 };
 
 

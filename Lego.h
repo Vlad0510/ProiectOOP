@@ -29,6 +29,8 @@ public:
     }
 
     void testare_jucarie() override;
+
+    virtual ~Lego();
 };
 
 #endif //PROIECTOOP_LEGO_H
