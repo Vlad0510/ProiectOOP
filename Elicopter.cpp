@@ -92,7 +92,7 @@ void elicopter::testare_jucarie()
     else
         setColor(rlutil::GREY);
 
-    std::cout << "Doriti sa-l testati ?\n";
+    std::cout << "Doriti sa testati elicopterul ?\n";
     std::cin >> rsp;
     if(rsp == 0)
     {
@@ -103,7 +103,7 @@ void elicopter::testare_jucarie()
         std::cout << "Ca sa-l opriti apasati 1, ca sa continue apasati 0\n";
         for (int i = nr_baterii; i > 0; i--)
         {
-            std::this_thread::sleep_for(1s);
+            std::this_thread::sleep_for(0.7s);
             std::cout << ">";
             std::cin >> rsp;
             Elicopter_sound.play();
@@ -112,8 +112,12 @@ void elicopter::testare_jucarie()
                 std::cout << "Se opreste...\n";
                 break;
             }
-            if (i == 1)
-                std::cout << "S-au descarcat bateriile\n";
+            try{
+                if(i == 1)
+                    throw "s-au descarcat bateriile";
+            } catch (const char* msg) {
+                std::cerr << msg << '\n';
+            }
         }
     }
     else

@@ -8,13 +8,17 @@
 #include <iostream>
 #include <cstring>
 
+
 class catalog_de_promotii
 {
     std::string numele_catalogului;
     int nr_cataloage;
     std::string valabilitate_oferte;
+
+
 public:
-    catalog_de_promotii(const std::string &numeleCatalogului, int nrCataloage, const std::string &valabilitateOferte);
+    catalog_de_promotii(const std::string &numeleCatalogului, int nrCataloage, const std::string &valabilitateOferte/*, const Lego &lego, const Xshot &xshot, const elicopter &Elic*/);
+
 
     friend std::ostream& operator<<(std::ostream& putout, const catalog_de_promotii &c)
     {

@@ -21,7 +21,7 @@ void Lego::testare_jucarie() {
     bool rsp;
     using namespace std::chrono_literals;
 
-    std::cout << "Doriti sa verificati produsul ?" << '\n';
+    std::cout << "Doriti sa verificati produsul lego ?" << '\n';
     std::cin >> rsp;
     if (rsp == 1)
         std::cout << "Va doresc o zi buna!" << '\n';

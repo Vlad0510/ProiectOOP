@@ -28,21 +28,27 @@ void Xshot::verificare_tinte() const
 void Xshot::testare_jucarie()
 {
     using namespace std::chrono_literals;
+    bool rsp;
+    std::cout << "Doriti sa testati pusca Xshot ?\n";
+    std::cin >> rsp;
+    if (rsp == 0)
+    {
+        sf::SoundBuffer Shotgun_buffer;
+        Shotgun_buffer.loadFromFile("../Audio/Shotgun.wav");
+        sf::Sound Shotgun_sound;
+        Shotgun_sound.setBuffer(Shotgun_buffer);
+        Shotgun_sound.setVolume(10);
 
-    sf::SoundBuffer Shotgun_buffer;
-    Shotgun_buffer.loadFromFile("../Audio/Shotgun.wav");
-    sf::Sound Shotgun_sound;
-    Shotgun_sound.setBuffer(Shotgun_buffer);
-    Shotgun_sound.setVolume(10);
-
-    std::this_thread::sleep_for(3s);
-    setColor(rlutil::BLUE);
-    std::cout << "=* =* =*" << '\n';
-    setColor(rlutil::GREY);
-    Shotgun_sound.play();
-    std::this_thread::sleep_for(2s);
+        std::this_thread::sleep_for(1s);
+        setColor(rlutil::BLUE);
+        std::cout << "=* =* =*" << '\n';
+        setColor(rlutil::GREY);
+        Shotgun_sound.play();
+        std::this_thread::sleep_for(2s);
+    }
+    else
+        std::cout << "Va doresc o zi buna!" << '\n';
 }
-
 void Xshot::tragaci() const
 {
     using namespace std::chrono_literals;
@@ -66,6 +72,12 @@ void Xshot::tragaci() const
         std::this_thread::sleep_for(0.5s);
         std::cout << "Mai aveti " << x << " gloante. Mai trageti?";
         std::cin >> rsp;
+        try{
+            if(x == 0 && rsp == 0)
+                throw "Nu puteti trage, deoarece nu mai aveti gloante.";
+        } catch (const char* msg) {
+            std::cerr << msg << '\n';
+        }
     }
 }
 
@@ -92,7 +104,7 @@ void Xshot::magazie() const
         std::cout << "Acum aveti " << nr_gloante << " gloante" << '\n';
     }
     else
-        std::cout << "Iti urez bafta cu munitia ramasa ;)";
+        std::cout << "Iti urez bafta cu munitia ramasa ;)" << '\n';
 }
 
 Xshot::~Xshot() {

@@ -1,10 +1,12 @@
 #include <iostream>
+#include <vector>
 #include "Jucarie.h"
 #include "Elicopter.h"
 #include "Catalog.h"
 #include "Lego.h"
 #include "Xshot.h"
 #include "rlutil.h"
+#include "Papusa.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 int main()
@@ -15,36 +17,44 @@ int main()
     std::cout << "Folositi 0 pentru DA si 1 pentru NU\n";
     setColor(rlutil::GREY);
 
-    elicopter E1("elicopter", "iDrive", 119.99f, 8, "GREEN", 6);
+    elicopter E1("elicopter", "iDrive", 119.99f, 8, "GREEN", 2);
     elicopter ElicopteR = E1;
-    elicopter E2("elicopter", "CoolMachines", 84.99f, 5, "CYAN", 7);
+    elicopter E2("elicopter", "CoolMachines", 84.99f, 5, "CYAN", 6);
     std::cout << E1 << '\n';
-    E1.testare_jucarie();
     std::cout << E2 << '\n';
-    E2.testare_jucarie();
     std::cout << ElicopteR << '\n';
-    E1 = E2;
-    std::cout << E1 << '\n';
 
     catalog_de_promotii C_lego("lego", 7, "20.10.2020-31.10.2020");
     Lego L("Lego city", "Lego", 59.99f, 20, "7+", 150, C_lego);
     std::cout << L;
-    L.testare_jucarie();
 
     catalog_de_promotii C_xshot("X-shot", 15, "01.11.2020-15.11.2020");
 
     Xshot X1("Hawk eye", "Xshot", 79.99f, 8, "proiectile", 5, 8, C_xshot);
     std::cout << X1;
     X1.verificare_tinte();
-    X1.testare_jucarie();
 
-    Xshot X2("Chaos", "Xshot", 59.99f, 6, "bile", 0, 6, C_xshot);
+    Xshot X2("Chaos", "Xshot", 59.99f, 6, "bile", 0, 2, C_xshot);
     std::cout << X2;
     X2.verificare_tinte();
-    X2.testare_jucarie();
     X2.tragaci();
     X2.magazie();
 
+    std::vector<Jucarie*> juc;
+    juc.push_back(&E1);
+    juc.push_back(&E2);
+    juc.push_back(&L);
+    juc.push_back(&X1);
+    juc.push_back(&X2);
+
+    for(auto & i : juc)
+    {
+        i->testare_jucarie();
+    }
+
+    cutie_papusi_builder a;
+    papusa p = a.nr_papusi(0).nr_accesorii(6).nr_haine(4).nr_incaltari(2).bulid();
+    std::cout << p << '\n';
 
     while(window.isOpen())
     {
