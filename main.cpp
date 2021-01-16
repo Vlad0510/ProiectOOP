@@ -9,6 +9,16 @@
 #include "Papusa.h"
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+
+template<class Ttype>
+Ttype comp(Ttype a, Ttype b)
+{
+    if(a > b)
+        return a;
+    else
+        return b;
+};
+
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(sf::VideoMode::getDesktopMode()), "SFML");
@@ -52,6 +62,11 @@ int main()
         i->testare_jucarie();
     }
 
+    std::cout << "Comparatie intre " << X1.getNumeJucarie() << " si " << X2.getNumeJucarie() << '\n';
+    std::cout << comp<int>(X1.getNrGloante(), X2.getNrGloante()) << '\n';
+    std::cout << comp<float>(X1.getPret(), X2.getPret()) << '\n';
+    std::cout << comp<std::string>(X1.getNumeJucarie(), X2.getNumeJucarie()) << '\n';
+
     cutie_papusi_builder a;
     papusa p = a.nr_papusi(0).nr_accesorii(6).nr_haine(4).nr_incaltari(2).bulid();
     std::cout << p << '\n';
@@ -65,6 +80,7 @@ int main()
                 window.close();
         }
     }
+
     return 0;
 
 }

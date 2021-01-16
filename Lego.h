@@ -31,6 +31,12 @@ public:
     void testare_jucarie() override;
 
     virtual ~Lego();
+
+    const std::string &getVarstaRecomandata() const;
+
+    int getNrPiese() const;
+
+    const catalog_de_promotii &getCdp() const;
 };
 
 #endif //PROIECTOOP_LEGO_H

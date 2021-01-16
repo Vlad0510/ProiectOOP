@@ -110,3 +110,19 @@ void Xshot::magazie() const
 Xshot::~Xshot() {
 
 }
+
+const std::string &Xshot::getTipMunitie() const {
+    return tip_munitie;
+}
+
+int Xshot::getNrTinte() const {
+    return nr_tinte;
+}
+
+int Xshot::getNrGloante() const {
+    return nr_gloante;
+}
+
+const catalog_de_promotii &Xshot::getCdp() const {
+    return cdp;
+}

@@ -60,3 +60,15 @@ void Lego::testare_jucarie() {
 Lego::~Lego() {
 
 }
+
+const std::string &Lego::getVarstaRecomandata() const {
+    return varsta_recomandata;
+}
+
+int Lego::getNrPiese() const {
+    return nr_piese;
+}
+
+const catalog_de_promotii &Lego::getCdp() const {
+    return cdp;
+}

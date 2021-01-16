@@ -35,6 +35,14 @@ public:
     void magazie() const;
 
     virtual ~Xshot();
+
+    const std::string &getTipMunitie() const;
+
+    int getNrTinte() const;
+
+    int getNrGloante() const;
+
+    const catalog_de_promotii &getCdp() const;
 };
 
 #endif //PROIECTOOP_XSHOT_H
