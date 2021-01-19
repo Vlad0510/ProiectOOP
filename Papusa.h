@@ -19,6 +19,14 @@ public:
     papusa() = default;
 
     friend std::ostream &operator<<(std::ostream &os, const papusa &papusa);
+
+    int getNrPapusi() const;
+
+    int getNrAccesorii() const;
+
+    int getNrHaine() const;
+
+    int getNrIncaltari() const;
 };
 
 class cutie_papusi_builder
@@ -30,12 +38,8 @@ public:
     cutie_papusi_builder& nr_papusi(int nr)
     {
         p.nr_papusi = nr;
-        try{
             if(p.nr_papusi < 1)
                 throw "Numarul papusilor trebuie sa fie mai mare decat 1.\n";
-        } catch (const char* msg) {
-            std::cerr << msg << '\n';
-        }
         return *this;
     }
     cutie_papusi_builder& nr_accesorii(int nr)
@@ -64,6 +68,22 @@ std::ostream &operator<<(std::ostream &os, const papusa &papusa) {
     os << "Nr papusi: " << papusa.nr_papusi << " Nr accesorii: " << papusa.nr_accesorii << " Nr haine: "
        << papusa.nr_haine << " Nr incaltari: " << papusa.nr_incaltari << '\n';
     return os;
+}
+
+int papusa::getNrPapusi() const {
+    return nr_papusi;
+}
+
+int papusa::getNrAccesorii() const {
+    return nr_accesorii;
+}
+
+int papusa::getNrHaine() const {
+    return nr_haine;
+}
+
+int papusa::getNrIncaltari() const {
+    return nr_incaltari;
 }
 
 #endif //PROIECTOOP_PAPUSA_H

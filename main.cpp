@@ -21,7 +21,7 @@ Ttype comp(Ttype a, Ttype b)
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(sf::VideoMode::getDesktopMode()), "SFML");
+    sf::RenderWindow window(sf::VideoMode(240,160), "SFML");
 
     setColor(rlutil::RED);
     std::cout << "Folositi 0 pentru DA si 1 pentru NU\n";
@@ -47,7 +47,11 @@ int main()
     Xshot X2("Chaos", "Xshot", 59.99f, 6, "bile", 0, 2, C_xshot);
     std::cout << X2;
     X2.verificare_tinte();
+    try{
     X2.tragaci();
+    } catch (const char* msg) {
+    std::cerr << msg << '\n';
+    }
     X2.magazie();
 
     std::vector<Jucarie*> juc;
@@ -59,7 +63,11 @@ int main()
 
     for(auto & i : juc)
     {
+        try{
         i->testare_jucarie();
+        } catch (const char* msg) {
+        std::cerr << msg << '\n';
+        }
     }
 
     std::cout << "Comparatie intre " << X1.getNumeJucarie() << " si " << X2.getNumeJucarie() << '\n';
@@ -68,8 +76,12 @@ int main()
     std::cout << comp<std::string>(X1.getNumeJucarie(), X2.getNumeJucarie()) << '\n';
 
     cutie_papusi_builder a;
-    papusa p = a.nr_papusi(0).nr_accesorii(6).nr_haine(4).nr_incaltari(2).bulid();
-    std::cout << p << '\n';
+     try{
+         papusa p = a.nr_papusi(0).nr_accesorii(6).nr_haine(4).nr_incaltari(2).bulid();
+         std::cout << p << '\n';
+        } catch (const char* msg) {
+            std::cerr << msg << '\n';
+        }
 
     while(window.isOpen())
     {
@@ -82,5 +94,4 @@ int main()
     }
 
     return 0;
-
 }

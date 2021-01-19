@@ -72,12 +72,8 @@ void Xshot::tragaci() const
         std::this_thread::sleep_for(0.5s);
         std::cout << "Mai aveti " << x << " gloante. Mai trageti?";
         std::cin >> rsp;
-        try{
             if(x == 0 && rsp == 0)
                 throw "Nu puteti trage, deoarece nu mai aveti gloante.";
-        } catch (const char* msg) {
-            std::cerr << msg << '\n';
-        }
     }
 }
 

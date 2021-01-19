@@ -112,12 +112,8 @@ void elicopter::testare_jucarie()
                 std::cout << "Se opreste...\n";
                 break;
             }
-            try{
                 if(i == 1)
                     throw "s-au descarcat bateriile";
-            } catch (const char* msg) {
-                std::cerr << msg << '\n';
-            }
         }
     }
     else
